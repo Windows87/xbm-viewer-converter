@@ -195,3 +195,19 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.25);
 }
+
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  #editor-tools {
+    width: calc(100% - 8px);
+    order: 2;
+  }
+
+  #screen-container {
+    width: 100%;
+    order: 1;
+  }
+}
