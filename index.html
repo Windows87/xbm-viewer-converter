@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>XBM Viewer</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>XBM Viewer and Converter</title>
   </head>
 
   <body>
   	<div id="editor-tools">
+      <button id="convert-image-to-xbm-button" onclick="onConvertButtonClick()">Convert Image to XBM</button>
+      <button id="download-file-button" onclick="onDownloadFileClick()">Download XBM File</button>
+      <button id="convert-image-to-xbm-button" onclick="reset()">Reset</button>
+      <input type="file" id="convert-image-to-xbm-input-file" accept="image/*" onchange="onConvertInputFileChange(event)" />
   	  <textarea id="xbm-value-textarea" onkeyup="onTextAreaChange(event)" spellcheck="false">
 #define logo_width 30
 #define logo_height 30
@@ -28,7 +32,29 @@ static unsigned char logo_bits[] = {
   	  <div id="screen"></div>
   	</div>
 
-  	<script type="text/javascript" src="xbm-values.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <div id="convert-image-to-xbm-container">
+      <div id="convert-image-to-xbm">
+        <div id="convert-image-to-xbm-top">
+          <span>Convert</span>
+          <span id="convert-image-to-xbm-back" onclick="closeConvertContainer()">Back</span>
+        </div>
+
+        <canvas id="convert-image-to-xbm-canvas"></canvas>
+
+        <form id="convert-image-to-xbm-form">
+          <div id="convert-image-to-xbm-form-resize">
+            <input type="number" placeholder="width" id="convert-image-to-xbm-width-input" />
+            <span>x</span>
+            <input type="number" placeholder="height" id="convert-image-to-xbm-height-input" />
+          </div>
+          <input type="submit" value="Convert" />
+        </form>
+      </div>
+    </div>
+
+  	<script type="text/javascript" src="js/xbm-values.js"></script>
+    <script type="text/javascript" src="js/monochrome.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/convert-script.js"></script>
   </body>
 </html>

@@ -116,6 +116,12 @@ function updateScreen(textValue) {
   setScreen(bitmap.width, bitmap.height, pixelsBlack);
 }
 
+function updateTextarea(textValue) {
+  const textarea = document.querySelector('#xbm-value-textarea');
+  textarea.value = textValue;
+  localStorage.setItem('textarea-value', textValue);
+}
+
 function onTextAreaChange(event) {
   const value = event.target.value;
   localStorage.setItem('textarea-value', value);
